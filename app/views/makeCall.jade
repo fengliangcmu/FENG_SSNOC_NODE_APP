@@ -1,0 +1,41 @@
+doctype html
+html
+    include includes/head.jade
+    script(src='/js/jquery.cookie.js')
+    script(src='/js/makecall_ui.js')
+    script(src='/js/peer.js')
+    script(src='/js/bootstrap-filestyle.js')
+
+    title SSNoC - Make A Call
+    body
+        include includes/navbar.jade
+        div.container
+            br
+            div.alert.alert-info#alert THIS IS ERROR INFORMATION PART
+            //div.alert.alert-info#upload_div
+            //  h4 Update Your Latest Profile Picture
+            //
+            //    input( type="file" id="file_input" class="filestyle" data-buttonName="btn-primary" data-buttonBefore="true")
+            //    button(class="btn btn-primary"  id="submit_pic" )
+            //      strong Upload
+            //br
+            br
+            div(id="video_container")
+               span#their_id_span Remote Video:
+                div#their_id
+               br
+               video(id="their-video" autoplay width="160" height="120" )
+               br
+               span#my_id_span Local Video:
+                div#my_id #{user_id_actualName}
+               br
+               video(id="my-video" muted="true" autoplay width="160" height="120")
+            br
+            div.input-group.input-group-sm
+                span.input-group-addon Call User Id
+                input(id="callToId" type="text" class="form-control" placeholder="User's id that you want to call")
+            div.btn-group
+                button(class="btn btn-success" id="make_call" )
+                    strong Call
+                button(class="btn btn-danger"  id="end_call" )
+                    strong End Call
